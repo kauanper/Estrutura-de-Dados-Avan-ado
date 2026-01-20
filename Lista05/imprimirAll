@@ -1,0 +1,10 @@
+imprimirTodos(r)
+
+    se r == null
+        retorne
+
+    para i de 0 até r.chaves.size() - 1
+        imprimirTodos(r.filhos[i])
+        imprimir(r.chaves[i])
+
+    imprimirTodos(r.filhos[r.chaves.size()])
