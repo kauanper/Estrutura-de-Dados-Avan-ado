@@ -1,14 +1,9 @@
-Algoritmo que retorna o elemento minimo em arv B
+Minimo(r):
+    se r == nulo:
+        retorne nulo
 
-Minimo(r){
-    if(r == nulo){
-        retorne nulo;
-    }
+    no = r
+    enquanto no.naoEhFolha():
+        no = no.filhos[0]
 
-    No filhoEsq = r;
-    while(filhoEsq != nulo){
-        filhoEsq = filhoEsq.esq
-    }
-
-    returno filhoEsq;
-}
+    retorne no.chaves[0]
