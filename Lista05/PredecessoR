@@ -1,32 +1,28 @@
-Predecessor: é o valor que vem imediatamente antes de K quando os elementos estão ordenados
+O algoritmo de predecessor em árvores B tem como objetivo encontrar a
+maior chave da estrutura que seja menor do que uma chave k específica.
 
-predecessor(r, k)
-    se r == nulo
-        retorne nulo
+predecessor (r, k)
 
+    se r == null
+        retorne null //r não existe
 
-    noK = busca(k);
-    se noK == nulo
-        retorn nulo; //k não existe
+    (noK, iK) = busca(r, k) //noK -> no que contem k, iK -> indice que k está no nó
+    se nok == null
+        return null //k não existe em r
 
-    //noK é o no que contem k
-    int cont = 0;
-    chaveAux = noK.[0]
-    while(noK[cont] != k){
-        chaveAux = noK[cont]
-        cont++;
-    }
-    //achei k
-    if(chaveAux != k){
-        //significa que o predecessor é o valor da extrema direita da sub arv [chaveAux, k](ou noK[cont]) ou chaveAux se não tievr sub Arv
-        if(noK[cont].esq == nulo)
-            retorne chaveAux;
+    se (noK.filhos == null) //nok é uma folha
+        se iK > 0
+            retorne noK[iK - 1]
+        senao
+            //k não tem predecessor? não sei oq faço
+            retorne null
 
-        no = noK[cont];
-        while(no.dir != nulo)
-            no = no.dir
+    senao   //noK não é folha, então descesmos na sub arv direita de iK-1
+        aux = noK.filhos[iK - 1]
+        while aux.filhos != null
+            aux = aux.filhos[aux.filhos.size()] //a ideia é pegar o ultimo ponteiro, não sei se assim é uma boa forma de escreve
 
-        retorne no[no.size - 1] //pego o ultimo valor da sub arv direita
-    }
-
-
+        //estamos no ultimo no a extrema direita
+        retorne aux[aux.filhos.size() - 1]     //menos 1 pois em arv B, filhos são sempre no max 2d + 1,
+                                               // ou seja, aux.filhos.size() já da o numero correspondente de filho
+                                               // e aux.filhos.size() - 1 da o numero corresponte de elementos que e no max 2d
