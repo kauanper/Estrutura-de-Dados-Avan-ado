@@ -7,11 +7,11 @@ posSucessor(no){
     if(no.pai == null){
         return null;
     }
-    u = no.pai
 
+    u = no.pai
     if(u.esq == no){ ///checar se no é filho esq de u
 
-        //checar se temos pai tem filho a direita
+        //checar se pai tem filho a direita
         if(u.dir != null){
             return posPrimeiro(u.dir)
         }

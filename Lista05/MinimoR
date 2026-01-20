@@ -1,0 +1,14 @@
+Algoritmo que retorna o elemento minimo em arv B
+
+Minimo(r){
+    if(r == nulo){
+        retorne nulo;
+    }
+
+    No filhoEsq = r;
+    while(filhoEsq != nulo){
+        filhoEsq = filhoEsq.esq
+    }
+
+    returno filhoEsq;
+}
