@@ -10,19 +10,27 @@ predecessor (r, k)
     se nok == null
         return null //k não existe em r
 
-    se (noK.filhos == null) //nok é uma folha
+    se (noK.filhos == null)                         //nok é uma folha
         se iK > 0
             retorne noK[iK - 1]
         senao
             //k não tem predecessor? não sei oq faço
-            retorne null
+            se noK.pai == null
+                retorne null; /estou na raiz e sou o primeiro
+            senao
+                aux;
+                for (int i 0; i < noK.pai.chaves.size() - 1; i++)
+                    se nok.pai[i] > k
+                        break;
+                    aux = noK.pai[i];
+                return aux
 
-    senao   //noK não é folha, então descesmos na sub arv direita de iK-1
-        aux = noK.filhos[iK - 1]
+    senao   //noK não é folha descemos na subarv esq
+        aux = noK.filhos[iK]
         while aux.filhos != null
-            aux = aux.filhos[aux.filhos.size()] //a ideia é pegar o ultimo ponteiro, não sei se assim é uma boa forma de escreve
+            aux = aux.filhos[aux.chaves.size()]
 
         //estamos no ultimo no a extrema direita
-        retorne aux[aux.filhos.size() - 1]     //menos 1 pois em arv B, filhos são sempre no max 2d + 1,
+        retorne aux[aux.chaves.size() - 1]     //menos 1 pois em arv B, filhos são sempre no max 2d + 1,
                                                // ou seja, aux.filhos.size() já da o numero correspondente de filho
                                                // e aux.filhos.size() - 1 da o numero corresponte de elementos que e no max 2d
