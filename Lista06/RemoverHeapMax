@@ -1,0 +1,31 @@
+//assumindo que heap começa do indice 1
+
+removerHeapMax(lista, n)
+    lista[1] = lista[n]
+    remove.lista[n]
+    n--;
+
+    checarDesceno(lista, 1, n)
+
+
+checarDesceno(lista, i, n)
+
+     esq = 2 * i
+     dir = 2 * i + 1
+     maior = i
+
+     se (esq <= n e lista[esq] > lista[maior]) //esq <= n, significa se ainda está no vetor
+         maior = esq
+
+     se (dir <= n e lista[dir] > lista[maior]) //dir <= n, significa se ainda está no vetor
+         maior = dir
+
+     se (maior == i) //nao achomos maior, podemos parar
+         return null;
+
+     aux = lista[i]
+     lista[i] = lista[maior]
+     lista[maior] = aux;
+
+     checarDescendo(lista, maior)
+

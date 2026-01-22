@@ -1,0 +1,20 @@
+InserirHeapMax(lista, n, x)
+    lista.add(x);   //x entra na ultima posição da lista
+    n++;            //tamanho aumenta em 1, se refere ao indice q x foi inserido
+
+    checarSubino(lista, n)
+
+checarSubino(lista, n)
+
+    se (n == 1 || lista[n] <= lista[n/2])
+        return null;
+
+    //trocar pai e filho
+    aux = lista[n]
+    lista[n] = lista[n/2]
+    lista[n/2] = aux
+
+    checarSubino(lista, n/2)
+
+
+//assumindo que heap comça pelo indice 1 (mais facil de entender)
