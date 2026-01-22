@@ -1,0 +1,20 @@
+B-intervalo(r, x, y)
+    se r == null
+        retorne
+
+    para i de 0 até r.chaves.size() - 1
+
+        // só desce se ainda pode existir algo ≥ x
+        se x < r.chaves[i]
+            B-intervalo(r.filhos[i], x, y)
+
+        // imprime apenas se estiver no intervalo
+        se r.chaves[i] >= x e r.chaves[i] <= y
+            print(r.chaves[i])
+
+        // poda: nada mais à direita serve
+        se r.chaves[i] > y
+            return
+
+    // último filho só se ainda houver chance
+    B-intervalo(r.filhos[r.chaves.size()], x, y)
